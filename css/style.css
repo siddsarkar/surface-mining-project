@@ -1,0 +1,306 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+/* Photon Colors SCSS Variables v3.2.0 */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #d7d7db;
+  --color-card-bg: #ffffff;
+  --color-text-primary: #0c0c0d;
+  --color-text-secondary: #737373;
+  --color-input-bg: #ffffff;
+  --color-input-border: rgba(12, 12, 13, 0.3);
+  --primary-icon: rgba(12, 12, 13, 0.8);
+  --secondary-icon: rgba(12, 12, 13, 0.6);
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.bg-top {
+  background: teal;
+  height: 23%;
+}
+
+.bg-bottom {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background: var(--color-bg);
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  z-index: 999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 999999;
+}
+
+.app {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 70rem;
+  height: 95%;
+  margin: 2rem auto;
+  -webkit-box-shadow: 0 2px 8px rgba(12, 12, 13, 0.2);
+          box-shadow: 0 2px 8px rgba(12, 12, 13, 0.2);
+}
+
+.app-sidebar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30px;
+  overflow: hidden;
+}
+
+.app-sidebar .menu-item {
+  padding-top: 16px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.app-sidebar .menu-item:first-child {
+  background-color: lightblue;
+}
+
+.app-sidebar .menu-item:hover {
+  background-color: teal;
+}
+
+.app-sidebar .menu-item p {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.app-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: var(--color-card-bg);
+  overflow-y: auto;
+}
+
+#results-tab {
+  display: none;
+}
+
+#results-tab:active {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .app-main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (min-width: 800px) {
+  .left {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+  }
+  .right {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+  }
+}
+
+.form-label {
+  position: relative;
+  width: 100%;
+  padding: 4px 16px 0px 16px;
+  font-size: 18px;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.form-separator {
+  padding: 8px;
+}
+
+.form-radio-group {
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.form-radio-group span {
+  margin-right: 4px;
+}
+
+.form-group {
+  height: 40px;
+  padding: 8px 16px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.form-group .input-unit {
+  width: 80px;
+  margin-left: 8px;
+  height: 32px;
+  text-align: left;
+  line-height: 1.9;
+}
+
+.form-group .input-icon {
+  height: 32px;
+  width: 180px;
+  margin-right: 8px;
+  text-align: right;
+  line-height: 1.9;
+}
+
+.form-group .input-icon svg {
+  fill: var(--color-text-primary);
+  height: 16px;
+  width: 16px;
+}
+
+.form-group input {
+  height: 32px;
+  background: var(--color-input-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-input-border);
+  border-radius: 2px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0 8px 0 8px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.form-group input:disabled {
+  opacity: 0.5;
+}
+
+.form-group input::-webkit-input-placeholder {
+  color: var(--color-text-secondary);
+}
+
+.form-group input:-ms-input-placeholder {
+  color: var(--color-text-secondary);
+}
+
+.form-group input::-ms-input-placeholder {
+  color: var(--color-text-secondary);
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.form-group input:not([disabled]):hover {
+  border-color: rgba(10, 132, 255, 0.3);
+}
+
+.form-group input:focus:not([disabled]) {
+  border-color: #0a84ff;
+  -webkit-box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
+          box-shadow: 0 0 0 1px #0a84ff, 0 0 0 4px rgba(10, 132, 255, 0.3);
+}
+
+.form-group input:invalid {
+  border-color: #d70022;
+  -webkit-box-shadow: 0 0 0 1px #d70022, 0 0 0 4px rgba(215, 0, 34, 0.3);
+          box-shadow: 0 0 0 1px #d70022, 0 0 0 4px rgba(215, 0, 34, 0.3);
+}
+
+.btn input {
+  position: relative;
+  cursor: pointer;
+  right: 0;
+  margin: 24px 0px 0px 0px;
+  width: 100%;
+  height: 32px;
+  color: #ffffff;
+  background: #0060df;
+  border: none;
+  border-radius: 2px;
+}
+
+.btn input:hover:not([disabled]) {
+  background: #003eaa;
+}
+
+.btn input:active:not([disabled]) {
+  background: #002275;
+}
+
+.btn input:focus:not([disabled]) {
+  -webkit-box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(0, 96, 223, 0.3);
+          box-shadow: 0 0 0 1px #0a84ff inset, 0 0 0 1px #0a84ff, 0 0 0 4px rgba(0, 96, 223, 0.3);
+}
+
+.btn input:disabled {
+  opacity: 50%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>SURFACE MINING</title>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="bg-top"></div>
+      <div class="bg-bottom"></div>
+    </div>
+    <!-- App Main -->
+    <div class="container">
+      <div class="app">
+        <div class="app-sidebar">
+          <a href="#data-tab" class="menu-item"><p>Data</p></a>
+          <a href="#results-tab" class="menu-item"><p>Results</p></a>
+          <!-- <div class="menu-item"><p>Commands</p></div> -->
+        </div>
+        <div class="app-main">
+          <div class="tab tab-data" id="data-tab">
+            <form class="left">
+              <div class="form">
+                <div class="form-label">Mine Operations</div>
+
+                <div class="form-group">
+                  <div class="input-icon">Production Target/Day</div>
+                  <input id="prod-target" type="number" />
+                  <div class="input-unit">tonne/m^3</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Shift Duration</div>
+                  <input id="shift-dur" type="number" />
+                  <div class="input-unit">hours</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Shifts/Day</div>
+                  <input id="shifts-day" type="number" />
+                  <div class="input-unit">shifts</div>
+                </div>
+              </div>
+
+              <div class="form">
+                <div class="form-label">Mineral Properties</div>
+                <div class="form-group">
+                  <div class="input-icon">Specific Gravity</div>
+                  <input id="sg" type="number" />
+                  <div class="input-unit">tonne/m^3</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Swelling Factor</div>
+                  <input id="sf" type="number" />
+                  <div class="input-unit"></div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Moisture</div>
+                  <input id="moisture" type="number" />
+                  <div class="input-unit">%</div>
+                </div>
+              </div>
+
+              <div class="form">
+                <div class="form-label">Shovel</div>
+                <div class="form-group">
+                  <div class="input-icon">Volume</div>
+                  <input id="vol-sh" type="number" />
+                  <div class="input-unit">m^3</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Utilisation</div>
+                  <input id="util" type="number" />
+                  <div class="input-unit">%</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Mechanical Availability</div>
+                  <input id="mech-avail" type="number" />
+                  <div class="input-unit">%</div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-icon">Cycle time/Shovel</div>
+                  <input id="ct" type="number" />
+                  <div class="input-unit">sec</div>
+                </div>
+
+                <div class="form-label">Bucket Fill Factor</div>
+                <div class="form-radio-group">
+                  <span>
+                    <input value="0.5" name="bucket-factor" type="radio" />
+                    <label>0.5</label>
+                  </span>
+                  <span>
+                    <input value="0.55" name="bucket-factor" type="radio" />
+                    <label>0.55</label>
+                  </span>
+                  <span>
+                    <input value="0.6" name="bucket-factor" type="radio" />
+                    <label>0.6</label>
+                  </span>
+                  <span>
+                    <input value="0.65" name="bucket-factor" type="radio" />
+                    <label>0.65</label>
+                  </span>
+                  <span>
+                    <input value="0.7" name="bucket-factor" type="radio" />
+                    <label>0.7</label>
+                  </span>
+                  <span>
+                    <input value="0.75" name="bucket-factor" type="radio" />
+                    <label>0.75</label>
+                  </span>
+                  <span>
+                    <input value="0.80" name="bucket-factor" type="radio" />
+                    <label>0.80</label>
+                  </span>
+                  <span>
+                    <input value="0.85" name="bucket-factor" type="radio" />
+                    <label>0.85</label>
+                  </span>
+                  <span>
+                    <input value="0.90" name="bucket-factor" type="radio" />
+                    <label>0.90</label>
+                  </span>
+                  <span>
+                    <input value="0.95" name="bucket-factor" type="radio" />
+                    <label>0.95</label>
+                  </span>
+                  <span>
+                    <input value="1.00" name="bucket-factor" type="radio" />
+                    <label>1.00</label>
+                  </span>
+                </div>
+              </div>
+            </form>
+            <form class="right">
+              <div class="form">
+                <div class="form-label">Technical Properties of Dump Truck</div>
+                <div class="form-group">
+                  <div class="input-icon">Capacity</div>
+                  <input id="cp" type="number" />
+                  <div class="input-unit">tonnes</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Vol of Truck Bed</div>
+                  <input id="vol-tr" type="number" />
+                  <div class="input-unit">m^3</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Transportation Velocity</div>
+                  <input id="trans-vel" type="number" />
+                  <div class="input-unit">km/hr</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Operator Efficiency</div>
+                  <input id="oe" type="number" />
+                  <div class="input-unit">%</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Truck Traffic/5-min</div>
+                  <input id="tr-traffic" type="number" />
+                  <div class="input-unit">%</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Transportation Distance</div>
+                  <input id="trans-dist" type="number" />
+                  <div class="input-unit">km</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Returning Velocity</div>
+                  <input id="re-vel" type="number" />
+                  <div class="input-unit">km/hr</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Dumping Time</div>
+                  <input id="dump-time" type="number" />
+                  <div class="input-unit">min</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Sampling Time</div>
+                  <input id="sampling-time" type="number" />
+                  <div class="input-unit">min</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Truck Bed Cleaning Time</div>
+                  <input id="bed-cl-time" type="number" />
+                  <div class="input-unit">min</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Manoeuvering Time</div>
+                  <input id="manu-time" type="number" />
+                  <div class="input-unit">min</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Shift Changing Time</div>
+                  <input id="shift-chng-time" type="number" />
+                  <div class="input-unit">hr</div>
+                </div>
+                <div class="form-group">
+                  <div class="input-icon">Time lost (Others)</div>
+                  <input id="other-time" type="number" />
+                  <div class="input-unit">min</div>
+                </div>
+
+                <div class="form-group">
+                  <button id="calculate-btn" type="button">Calculate</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div id="results-tab" class="tab tab-results">
+            <h1>Results</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
