@@ -146,7 +146,7 @@ document.getElementById("calculate-btn").onclick = () => {
   );
   console.log("numTripShift", numTripShift);
 
-  prodTruckShift = numTripShift * estBulkTon * mechAvailability / 100;
+  prodTruckShift = (numTripShift * estBulkTon * mechAvailability) / 100;
   console.log("prodTruckShift", prodTruckShift);
 
   prodTruckDay = prodTruckShift * shiftsDay;
@@ -162,7 +162,7 @@ document.getElementById("calculate-btn").onclick = () => {
   console.log("matchFactor", matchFactor);
 
   y = (60 * numTruckDay) / (cycleTimeTruck * numShovelReq);
-  u = 60  / loadTime;
+  u = 60 / loadTime;
 
   queueLength = (y * y) / (u * (u - y));
   console.log("queueLength", queueLength);
@@ -202,7 +202,8 @@ document.getElementById("calculate-btn").onclick = () => {
   res.appendChild(pps);
 
   let ppd = document.createElement("li");
-  ppd.innerHTML = "Production per Day from One Shovel:" + prodPerDay + " tonnes/day";
+  ppd.innerHTML =
+    "Production per Day from One Shovel:" + prodPerDay + " tonnes/day";
   res.appendChild(ppd);
 
   let nsr = document.createElement("li");
@@ -214,7 +215,10 @@ document.getElementById("calculate-btn").onclick = () => {
   //res.appendChild(tps);
 
   let evt = document.createElement("li");
-  evt.innerHTML = "Estimated Volumetric Capacity of the truck bed: " + estVolTruck + " cubic meter";
+  evt.innerHTML =
+    "Estimated Volumetric Capacity of the truck bed: " +
+    estVolTruck +
+    " cubic meter";
   res.appendChild(evt);
 
   let ebt = document.createElement("li");
@@ -222,7 +226,8 @@ document.getElementById("calculate-btn").onclick = () => {
   res.appendChild(ebt);
 
   let nbpt = document.createElement("li");
-  nbpt.innerHTML = "Number of Buckets per Truck: " + numBucketPertruck + " buckets";
+  nbpt.innerHTML =
+    "Number of Buckets per Truck: " + numBucketPertruck + " buckets";
   res.appendChild(nbpt);
 
   let lt = document.createElement("li");
@@ -242,23 +247,29 @@ document.getElementById("calculate-btn").onclick = () => {
   res.appendChild(ctt);
 
   let nts = document.createElement("li");
-  nts.innerHTML = "Number of trips Shift: " + numTripShift + " trips';
+  nts.innerHTML = "Number of trips Shift: " + numTripShift + " trips";
   res.appendChild(nts);
 
   let pts = document.createElement("li");
-  pts.innerHTML = "Productivity of the Truck per Shift: " + prodTruckShift + " tonnes/shift";
+  pts.innerHTML =
+    "Productivity of the Truck per Shift: " + prodTruckShift + " tonnes/shift";
   res.appendChild(pts);
 
   let ptd = document.createElement("li");
-  ptd.innerHTML = "Productivity of the Truck per Day: " + prodTruckDay + " tonnes/day";
+  ptd.innerHTML =
+    "Productivity of the Truck per Day: " + prodTruckDay + " tonnes/day";
   res.appendChild(ptd);
 
   let ntd = document.createElement("li");
-  ntd.innerHTML = "Number of Truck required per Day: " + numTruckDay + " trucks";
+  ntd.innerHTML =
+    "Number of Truck required per Day: " + numTruckDay + " trucks";
   res.appendChild(ntd);
 
   let tpt = document.createElement("li");
-  tpt.innerHTML = "Total Productivity of all the Dump Trucks: " + totalProdTruck + " tonnes/day";
+  tpt.innerHTML =
+    "Total Productivity of all the Dump Trucks: " +
+    totalProdTruck +
+    " tonnes/day";
   res.appendChild(tpt);
 
   let mf = document.createElement("li");
