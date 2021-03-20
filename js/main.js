@@ -10,7 +10,7 @@ document.getElementById("calculate-btn").onclick = () => {
   let mechAvailability = document.getElementById("mech-avail").valueAsNumber;
   let cycleTime = document.getElementById("ct").valueAsNumber;
   let truckCapacity = document.getElementById("cp").valueAsNumber;
-  let truckVol = document.getElementById("vol-tr").valueAsNumber;
+  // let truckVol = document.getElementById("vol-tr").valueAsNumber;
   let truckTransVel = document.getElementById("trans-vel").valueAsNumber;
   let truckOprEff = document.getElementById("oe").valueAsNumber;
   // let truckTraffic = document.getElementById("tr-traffic").valueAsNumber;
@@ -68,7 +68,7 @@ document.getElementById("calculate-btn").onclick = () => {
   realBucketCapacity = realVolCapShovel * bulkDensity;
   console.log("realBucketCapacity:", realBucketCapacity);
 
-  numBucketPertruck = Math.floor(truckVol / realVolCapShovel); // is an integer
+  numBucketPertruck = Math.floor(truckCapacity / realBucketCapacity); // is an integer
 
   // let nbpt = document.createElement("li");
   // nbpt.innerHTML = "Number of Buckets per Truck: " + numBucketPertruck;
@@ -111,13 +111,13 @@ document.getElementById("calculate-btn").onclick = () => {
   estVolTruck = realVolCapShovel * numBucketPertruck;
   console.log("estVolTruck", estVolTruck);
 
-  estBulkTon = estVolTruck * bulkDensity; // if estbulkton > truck capacity then estbulkton=truck capacity
-  if (estBulkTon > truckCapacity) {
-    console.log("estBulkTon", truckCapacity);
-    numBucketPertruck = truckCapacity / (bulkDensity * realVolCapShovel); // then numbucketpertruck=truckcapacity/(bulkdensity*realvolcapofshovel)
-  } else {
-    console.log("estBulkTon", estBulkTon);
-  }
+  estBulkTon = realBucketCapacity * numBucketPertruck; // if estbulkton > truck capacity then estbulkton=truck capacity
+  console.log("estBulkTon", estBulkTon);
+  // if (estBulkTon > truckCapacity) {
+  //   console.log("estBulkTon", truckCapacity);
+  //   numBucketPertruck = truckCapacity / (bulkDensity * realVolCapShovel); // then numbucketpertruck=truckcapacity/(bulkdensity*realvolcapofshovel)
+  // } else {
+  // }
 
   console.log("numBucketPertruck:", Math.floor(numBucketPertruck));
 
@@ -172,38 +172,44 @@ document.getElementById("calculate-btn").onclick = () => {
   let rvcs = document.createElement("li");
   rvcs.innerHTML =
     "Real Volumetric capacity of the Shovel Bucket: " +
-    realVolCapShovel +
+    realVolCapShovel.toFixed(2) +
     " cubic meter";
   res.appendChild(rvcs);
 
   let bd = document.createElement("li");
-  bd.innerHTML = "Bulk Density: " + bulkDensity + " tonnes/cubic meter";
+  bd.innerHTML =
+    "Bulk Density: " + bulkDensity.toFixed(2) + " tonnes/cubic meter";
   res.appendChild(bd);
 
   let rbc = document.createElement("li");
   rbc.innerHTML =
-    "Real Capacity of the Bucket: " + realBucketCapacity + " tonnes";
+    "Real Capacity of the Bucket: " + realBucketCapacity.toFixed(2) + " tonnes";
   res.appendChild(rbc);
 
   let oe = document.createElement("li");
   oe.innerHTML =
     "Overall Efficiency of the Shovel and Dumper Combination: " +
-    overallEffi * 100 +
+    (overallEffi * 100).toFixed(2) +
     " %";
   res.appendChild(oe);
 
   let hp = document.createElement("li");
   hp.innerHTML =
-    "Hourly Productivity from Shovel: " + hourlyProd + " tonnes/hour";
+    "Hourly Productivity from Shovel: " +
+    hourlyProd.toFixed(3) +
+    " tonnes/hour";
   res.appendChild(hp);
 
   let pps = document.createElement("li");
-  pps.innerHTML = "Production per Shift: " + prodPerShift + " tonnes/shift";
+  pps.innerHTML =
+    "Production per Shift: " + prodPerShift.toFixed(3) + " tonnes/shift";
   res.appendChild(pps);
 
   let ppd = document.createElement("li");
   ppd.innerHTML =
-    "Production per Day from One Shovel:" + prodPerDay + " tonnes/day";
+    "Production per Day from One Shovel: " +
+    prodPerDay.toFixed(3) +
+    " tonnes/day";
   res.appendChild(ppd);
 
   let nsr = document.createElement("li");
@@ -214,15 +220,16 @@ document.getElementById("calculate-btn").onclick = () => {
   //tps.innerHTML = "totalProdShovel:" + totalProdShovel;
   //res.appendChild(tps);
 
-  let evt = document.createElement("li");
-  evt.innerHTML =
-    "Estimated Volumetric Capacity of the truck bed: " +
-    estVolTruck +
-    " cubic meter";
-  res.appendChild(evt);
+  // let evt = document.createElement("li");
+  // evt.innerHTML =
+  //   "Estimated Volumetric Capacity of the truck bed: " +
+  //   estVolTruck +
+  //   " cubic meter";
+  // res.appendChild(evt);
 
   let ebt = document.createElement("li");
-  ebt.innerHTML = "Estimated Tonnage of the Truck:" + estBulkTon + " tonnes";
+  ebt.innerHTML =
+    "Estimated Tonnage of the Truck: " + estBulkTon.toFixed(3) + " tonnes";
   res.appendChild(ebt);
 
   let nbpt = document.createElement("li");
@@ -252,12 +259,16 @@ document.getElementById("calculate-btn").onclick = () => {
 
   let pts = document.createElement("li");
   pts.innerHTML =
-    "Productivity of the Truck per Shift: " + prodTruckShift + " tonnes/shift";
+    "Productivity of the Truck per Shift: " +
+    prodTruckShift.toFixed(3) +
+    " tonnes/shift";
   res.appendChild(pts);
 
   let ptd = document.createElement("li");
   ptd.innerHTML =
-    "Productivity of the Truck per Day: " + prodTruckDay + " tonnes/day";
+    "Productivity of the Truck per Day: " +
+    prodTruckDay.toFixed(3) +
+    " tonnes/day";
   res.appendChild(ptd);
 
   let ntd = document.createElement("li");
@@ -268,16 +279,16 @@ document.getElementById("calculate-btn").onclick = () => {
   let tpt = document.createElement("li");
   tpt.innerHTML =
     "Total Productivity of all the Dump Trucks: " +
-    totalProdTruck +
+    totalProdTruck.toFixed(3) +
     " tonnes/day";
   res.appendChild(tpt);
 
   let mf = document.createElement("li");
-  mf.innerHTML = "Match Factor:" + matchFactor;
+  mf.innerHTML = "Match Factor: " + matchFactor.toFixed(2);
   res.appendChild(mf);
 
   let ql = document.createElement("li");
-  ql.innerHTML = "Queue Length:" + queueLength;
+  ql.innerHTML = "Queue Length: " + Math.floor(queueLength);
   res.appendChild(ql);
 
   document.getElementById("results-tab").scrollIntoView(true);

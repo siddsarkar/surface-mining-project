@@ -123,7 +123,7 @@ a {
 
   &-main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex: 1;
     background: var(--color-card-bg);
     overflow-y: auto;
@@ -298,7 +298,7 @@ a {
 }
 
 .tab-results {
-  padding-top: 20px;
+  padding: 20px;
 }
 
 button {
