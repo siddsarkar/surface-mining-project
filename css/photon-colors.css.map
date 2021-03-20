@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA;;8DAE8D;AAE9D,yCAAyC",
+    "sources": [
+        "photon-colors.scss"
+    ],
+    "names": [],
+    "file": "photon-colors.css"
+}

@@ -24,6 +24,11 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .bg {
   top: 0;
   left: 0;
@@ -132,10 +137,6 @@ body {
           flex: 1;
   background: var(--color-card-bg);
   overflow-y: auto;
-}
-
-#results-tab {
-  display: none;
 }
 
 #results-tab:active {
@@ -304,3 +305,13 @@ body {
           box-shadow: none;
   border: none;
 }
+
+.tab-results {
+  padding-top: 20px;
+}
+
+button {
+  padding: 6px 12px;
+  height: 40px;
+}
+/*# sourceMappingURL=style.css.map */
