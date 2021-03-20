@@ -78,7 +78,7 @@ document.getElementById("calculate-btn").onclick = () => {
   console.log("overallEffi:", overallEffi * 100);
 
   hourlyProd =
-    (3600 * realBucketCapacity * overallEffi * bulkDensity) / cycleTime;
+    (3600 * realBucketCapacity * overallEffi ) / cycleTime;
   console.log("hourlyProd:", hourlyProd);
 
   prodPerShift = hourlyProd * shiftsDur;
@@ -161,10 +161,9 @@ document.getElementById("calculate-btn").onclick = () => {
   matchFactor = (numTruckDay * loadTime) / (numShovelReq * cycleTimeTruck);
   console.log("matchFactor", matchFactor);
 
-  y = (60 * numTruckDay) / (cycleTimeTruck * numShovelReq);
-  u = 60 / loadTime;
 
-  queueLength = (y * y) / (u * (u - y));
+
+  queueLength = overallEffi/ (1-overallEffi);
   console.log("queueLength", queueLength);
 
   //DISPLAY RESULTS
@@ -254,19 +253,19 @@ document.getElementById("calculate-btn").onclick = () => {
   res.appendChild(ctt);
 
   let nts = document.createElement("li");
-  nts.innerHTML = "Number of trips Shift: " + numTripShift + " trips";
+  nts.innerHTML = "Number of trips Shift per Truck: " + numTripShift + " trips";
   res.appendChild(nts);
 
   let pts = document.createElement("li");
   pts.innerHTML =
-    "Productivity of the Truck per Shift: " +
+    "Productivity of a Truck per Shift: " +
     prodTruckShift.toFixed(3) +
     " tonnes/shift";
   res.appendChild(pts);
 
   let ptd = document.createElement("li");
   ptd.innerHTML =
-    "Productivity of the Truck per Day: " +
+    "Productivity of a Truck per Day: " +
     prodTruckDay.toFixed(3) +
     " tonnes/day";
   res.appendChild(ptd);
