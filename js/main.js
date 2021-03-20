@@ -146,7 +146,7 @@ document.getElementById("calculate-btn").onclick = () => {
   );
   console.log("numTripShift", numTripShift);
 
-  prodTruckShift = numTripShift * estBulkTon;
+  prodTruckShift = numTripShift * estBulkTon * mechAvailability / 100;
   console.log("prodTruckShift", prodTruckShift);
 
   prodTruckDay = prodTruckShift * shiftsDay;
@@ -161,8 +161,8 @@ document.getElementById("calculate-btn").onclick = () => {
   matchFactor = (numTruckDay * loadTime) / (numShovelReq * cycleTimeTruck);
   console.log("matchFactor", matchFactor);
 
-  y = 60 / cycleTimeTruck;
-  u = 60 / loadTime;
+  y = (60 * numTruckDay) / (cycleTimeTruck * numShovelReq);
+  u = 60  / loadTime;
 
   queueLength = (y * y) / (u * (u - y));
   console.log("queueLength", queueLength);
@@ -198,75 +198,75 @@ document.getElementById("calculate-btn").onclick = () => {
   res.appendChild(hp);
 
   let pps = document.createElement("li");
-  pps.innerHTML = "prodPerShift:" + prodPerShift;
+  pps.innerHTML = "Production per Shift: " + prodPerShift + " tonnes/shift";
   res.appendChild(pps);
 
   let ppd = document.createElement("li");
-  ppd.innerHTML = "prodPerDay:" + prodPerDay;
+  ppd.innerHTML = "Production per Day from One Shovel:" + prodPerDay + " tonnes/day";
   res.appendChild(ppd);
 
   let nsr = document.createElement("li");
-  nsr.innerHTML = "numShovelReq:" + numShovelReq;
+  nsr.innerHTML = "Number of Shovels Required: " + numShovelReq + " Shovel";
   res.appendChild(nsr);
 
-  let tps = document.createElement("li");
-  tps.innerHTML = "totalProdShovel:" + totalProdShovel;
-  res.appendChild(tps);
+  //let tps = document.createElement("li");
+  //tps.innerHTML = "totalProdShovel:" + totalProdShovel;
+  //res.appendChild(tps);
 
   let evt = document.createElement("li");
-  evt.innerHTML = "estVolTruck:" + estVolTruck;
+  evt.innerHTML = "Estimated Volumetric Capacity of the truck bed: " + estVolTruck + " cubic meter";
   res.appendChild(evt);
 
   let ebt = document.createElement("li");
-  ebt.innerHTML = "estBulkTon:" + estBulkTon;
+  ebt.innerHTML = "Estimated Tonnage of the Truck:" + estBulkTon + " tonnes";
   res.appendChild(ebt);
 
   let nbpt = document.createElement("li");
-  nbpt.innerHTML = "numBucketPertruck:" + numBucketPertruck;
+  nbpt.innerHTML = "Number of Buckets per Truck: " + numBucketPertruck + " buckets";
   res.appendChild(nbpt);
 
   let lt = document.createElement("li");
-  lt.innerHTML = "loadTime:" + loadTime;
+  lt.innerHTML = "Loading Time: " + loadTime + " min";
   res.appendChild(lt);
 
   let tt = document.createElement("li");
-  tt.innerHTML = "transTime:" + transTime;
+  tt.innerHTML = "Transportation Time: " + transTime + " min";
   res.appendChild(tt);
 
   let rt = document.createElement("li");
-  rt.innerHTML = "retTime:" + retTime;
+  rt.innerHTML = "Returning Time: " + retTime + " min";
   res.appendChild(rt);
 
   let ctt = document.createElement("li");
-  ctt.innerHTML = "cycleTimeTruck:" + cycleTimeTruck;
+  ctt.innerHTML = "Cycle time of the Dump Truck: " + cycleTimeTruck + " min";
   res.appendChild(ctt);
 
   let nts = document.createElement("li");
-  nts.innerHTML = "numTripShift:" + numTripShift;
+  nts.innerHTML = "Number of trips Shift: " + numTripShift + " trips';
   res.appendChild(nts);
 
   let pts = document.createElement("li");
-  pts.innerHTML = "prodTruckShift:" + prodTruckShift;
+  pts.innerHTML = "Productivity of the Truck per Shift: " + prodTruckShift + " tonnes/shift";
   res.appendChild(pts);
 
   let ptd = document.createElement("li");
-  ptd.innerHTML = "prodTruckShift:" + prodTruckShift;
+  ptd.innerHTML = "Productivity of the Truck per Day: " + prodTruckDay + " tonnes/day";
   res.appendChild(ptd);
 
   let ntd = document.createElement("li");
-  ntd.innerHTML = "numTruckDay:" + numTruckDay;
+  ntd.innerHTML = "Number of Truck required per Day: " + numTruckDay + " trucks";
   res.appendChild(ntd);
 
   let tpt = document.createElement("li");
-  tpt.innerHTML = "totalProdTruck:" + totalProdTruck;
+  tpt.innerHTML = "Total Productivity of all the Dump Trucks: " + totalProdTruck + " tonnes/day";
   res.appendChild(tpt);
 
   let mf = document.createElement("li");
-  mf.innerHTML = "matchFactor:" + matchFactor;
+  mf.innerHTML = "Match Factor:" + matchFactor;
   res.appendChild(mf);
 
   let ql = document.createElement("li");
-  ql.innerHTML = "queueLength:" + queueLength;
+  ql.innerHTML = "Queue Length:" + queueLength;
   res.appendChild(ql);
 
   document.getElementById("results-tab").scrollIntoView(true);
