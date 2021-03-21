@@ -77,8 +77,7 @@ document.getElementById("calculate-btn").onclick = () => {
   overallEffi = (utilisation * mechAvailability * truckOprEff) / 1000000;
   console.log("overallEffi:", overallEffi * 100);
 
-  hourlyProd =
-    (3600 * realBucketCapacity * overallEffi ) / cycleTime;
+  hourlyProd = (3600 * realBucketCapacity * overallEffi) / cycleTime;
   console.log("hourlyProd:", hourlyProd);
 
   prodPerShift = hourlyProd * shiftsDur;
@@ -152,7 +151,7 @@ document.getElementById("calculate-btn").onclick = () => {
   prodTruckDay = prodTruckShift * shiftsDay;
   console.log("prodTruckDay", prodTruckDay);
 
-  numTruckDay = Math.floor((prodPerDay * numShovelReq) / prodTruckDay);
+  numTruckDay = Math.floor((prodPerShift * numShovelReq) / prodTruckShift);
   console.log("numTruckDay:", numTruckDay);
 
   totalProdTruck = prodTruckDay * numTruckDay;
@@ -161,9 +160,7 @@ document.getElementById("calculate-btn").onclick = () => {
   matchFactor = (numTruckDay * loadTime) / (numShovelReq * cycleTimeTruck);
   console.log("matchFactor", matchFactor);
 
-
-
-  queueLength = overallEffi/ (1-overallEffi);
+  queueLength = overallEffi / (1 - overallEffi);
   console.log("queueLength", queueLength);
 
   //DISPLAY RESULTS
@@ -226,18 +223,18 @@ document.getElementById("calculate-btn").onclick = () => {
   //   " cubic meter";
   // res.appendChild(evt);
 
-  let ebt = document.createElement("li");
-  ebt.innerHTML =
-    "Estimated Tonnage of the Truck: " + estBulkTon.toFixed(3) + " tonnes";
-  res.appendChild(ebt);
-
   let nbpt = document.createElement("li");
   nbpt.innerHTML =
     "Number of Buckets per Truck: " + numBucketPertruck + " buckets";
   res.appendChild(nbpt);
 
+  let ebt = document.createElement("li");
+  ebt.innerHTML =
+    "Estimated Tonnage of the Truck: " + estBulkTon.toFixed(3) + " tonnes";
+  res.appendChild(ebt);
+
   let lt = document.createElement("li");
-  lt.innerHTML = "Loading Time: " + loadTime + " min";
+  lt.innerHTML = "Loading Time: " + loadTime.toFixed(2) + " min";
   res.appendChild(lt);
 
   let tt = document.createElement("li");
@@ -249,7 +246,8 @@ document.getElementById("calculate-btn").onclick = () => {
   res.appendChild(rt);
 
   let ctt = document.createElement("li");
-  ctt.innerHTML = "Cycle time of the Dump Truck: " + cycleTimeTruck + " min";
+  ctt.innerHTML =
+    "Cycle time of the Dump Truck: " + cycleTimeTruck.toFixed(2) + " min";
   res.appendChild(ctt);
 
   let nts = document.createElement("li");
@@ -286,9 +284,9 @@ document.getElementById("calculate-btn").onclick = () => {
   mf.innerHTML = "Match Factor: " + matchFactor.toFixed(2);
   res.appendChild(mf);
 
-  let ql = document.createElement("li");
-  ql.innerHTML = "Queue Length: " + Math.floor(queueLength);
-  res.appendChild(ql);
+  // let ql = document.createElement("li");
+  // ql.innerHTML = "Queue Length: " + Math.floor(queueLength);
+  // res.appendChild(ql);
 
   document.getElementById("results-tab").scrollIntoView(true);
 };
